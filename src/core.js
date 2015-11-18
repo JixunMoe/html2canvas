@@ -129,7 +129,10 @@ function crop(canvas, bounds) {
     croppedCanvas.height =  h;
     log("Cropping canvas at:", "left:", bounds.left, "top:", bounds.top, "width:", w, "height:", h);
     log("Resulting crop with width", bounds.width, "and height", bounds.height, " with x", x1, "and y", y1);
-    croppedCanvas.getContext("2d").drawImage(canvas, x1, y1, w, h, 0, 0, w, h);
+    var cropCtx = croppedCanvas.getContext("2d");
+    cropCtx.drawImage(canvas, x1, y1, w, h, 0, 0, w, h);
+    // Text got painted to screen offset?
+    cropCtx.drawImage(canvas, x1 - window.scrollX, y1 - window.scrollY, w, h, 0, 0, w, h);
     return croppedCanvas;
 }
 
