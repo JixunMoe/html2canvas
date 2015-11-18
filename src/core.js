@@ -132,7 +132,8 @@ function crop(canvas, bounds) {
     var cropCtx = croppedCanvas.getContext("2d");
     cropCtx.drawImage(canvas, x1, y1, w, h, 0, 0, w, h);
     // Text got painted to screen offset?
-    cropCtx.drawImage(canvas, x1 - window.scrollX, y1 - window.scrollY, w, h, 0, 0, w, h);
+    // Maybe not :D
+    // cropCtx.drawImage(canvas, x1 - window.scrollX, y1 - window.scrollY, w, h, 0, 0, w, h);
     return croppedCanvas;
 }
 
